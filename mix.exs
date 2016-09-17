@@ -19,7 +19,7 @@ defmodule MiriamBlogApi.Mixfile do
   def application do
     [mod: {MiriamBlogApi, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :faker]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,7 +39,8 @@ defmodule MiriamBlogApi.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:ja_serializer, "~> 0.10.1"},
-     {:ja_resource, github: "AgilionApps/ja_resource", branch: "ap/pagination-callback"}]
+     {:ja_resource, github: "AgilionApps/ja_resource", branch: "ap/pagination-callback"},
+     {:faker, "~> 0.5"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
