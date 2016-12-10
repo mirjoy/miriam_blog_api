@@ -9,12 +9,12 @@ defmodule MiriamBlogApi.Blog do
     timestamps()
   end
 
-  @doc """
-  Builds a changeset based on the `struct` and `params`.
-  """
+  @castable [:title, :post, :user_id]
+  @required [:title, :post, :user_id]
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title, :post])
-    |> validate_required([:title, :post])
+    |> cast(params, @castable)
+    |> validate_required(@required)
+    |> assoc_constraint(:user)
   end
 end
