@@ -3,7 +3,8 @@ defmodule MiriamBlogApi.Blog do
 
   schema "blogs" do
     field :title, :string
-    field :body, :string
+    field :post, :string
+    belongs_to :user, MiriamBlogApi.User
 
     timestamps()
   end
@@ -13,7 +14,7 @@ defmodule MiriamBlogApi.Blog do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title, :body])
-    |> validate_required([:title, :body])
+    |> cast(params, [:title, :post])
+    |> validate_required([:title, :post])
   end
 end

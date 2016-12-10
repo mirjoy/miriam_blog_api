@@ -1,8 +1,9 @@
 defmodule MiriamBlogApi.BlogTest do
   use MiriamBlogApi.ModelCase
+
   alias MiriamBlogApi.Blog
 
-  @valid_attrs %{body: "some content", title: "some content"}
+  @valid_attrs %{post: "some content", title: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

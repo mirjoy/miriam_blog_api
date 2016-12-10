@@ -12,14 +12,15 @@ defmodule MiriamBlogApi.ConnCase do
   inside a transaction which is reset at the beginning
   of the test unless the test case is marked as async.
   """
-
   use ExUnit.CaseTemplate
 
   using do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
+      use MiriamBlogApi.Web, :shared
 
+      alias MiriamBlogApi.Factory
       alias MiriamBlogApi.Repo
       import Ecto
       import Ecto.Changeset
@@ -39,6 +40,18 @@ defmodule MiriamBlogApi.ConnCase do
       Ecto.Adapters.SQL.Sandbox.mode(MiriamBlogApi.Repo, {:shared, self()})
     end
 
-    {:ok, conn: Phoenix.ConnTest.build_conn()}
+    conn = Phoenix.ConnTest.build_conn()
+    api_conn = conn
+               |> Plug.Conn.put_req_header("accept", "application/vnd.api+json")
+               |> Plug.Conn.put_req_header("content-type", "application/vnd.api+json")
+
+    user = MiriamBlogApi.Factory.insert(:user,
+      email: "current_user@example.com",
+      first_name:  "Current",
+      last_name: "User",
+    )
+    auth_conn = Guardian.Plug.api_sign_in(api_conn, user)
+
+    {:ok, conn: conn, api_conn: api_conn, auth_conn: auth_conn}
   end
 end

@@ -12,10 +12,10 @@ defmodule MiriamBlogApi.Seeds do
 
   def blogposts do
     [
-      %{title: Faker.Company.name, body: Faker.Lorem.Shakespeare.En.hamlet},
-      %{title: Faker.Company.name, body: Faker.Lorem.Shakespeare.En.hamlet},
-      %{title: Faker.Company.name, body: Faker.Lorem.Shakespeare.En.hamlet},
-      %{title: Faker.Company.name, body: Faker.Lorem.Shakespeare.En.hamlet}
+      %{title: Faker.Company.name, post: Faker.Lorem.Shakespeare.En.hamlet},
+      %{title: Faker.Company.name, post: Faker.Lorem.Shakespeare.En.hamlet},
+      %{title: Faker.Company.name, post: Faker.Lorem.Shakespeare.En.hamlet},
+      %{title: Faker.Company.name, post: Faker.Lorem.Shakespeare.En.hamlet}
     ]
   end
 end

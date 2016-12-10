@@ -15,6 +15,15 @@ defmodule MiriamBlogApi.Web do
   Do NOT define functions inside the quoted expressions
   below.
   """
+  def shared do
+  quote do
+    alias MiriamBlogApi.{Repo,V1,Factory}
+    alias MiriamBlogApi.{
+      Blog,
+      User,
+    }
+  end
+end
 
 
   def model do
@@ -24,6 +33,8 @@ defmodule MiriamBlogApi.Web do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
+
+      unquote(shared)
     end
   end
 
