@@ -3,7 +3,7 @@ defmodule MiriamBlogApi.UserTest do
 
   alias MiriamBlogApi.User
 
-  @valid_attrs %{email: "some content", first_name: "some content", hashed_password: "some content", last_name: "some content", password: "some content", role: "some content"}
+  @valid_attrs %{email: "some content", first_name: "some content", hashed_password: "some content", last_name: "some content", password: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

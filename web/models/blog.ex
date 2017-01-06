@@ -4,7 +4,7 @@ defmodule MiriamBlogApi.Blog do
   schema "blogs" do
     field :title, :string
     field :post, :string
-    belongs_to :user, MiriamBlogApi.User
+    belongs_to :user, User
 
     timestamps()
   end

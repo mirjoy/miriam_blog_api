@@ -21,6 +21,7 @@ defmodule MiriamBlogApi.Web do
     alias MiriamBlogApi.{
       Blog,
       User,
+      Token
     }
   end
 end
@@ -49,6 +50,7 @@ end
 
       import MiriamBlogApi.Router.Helpers
       import MiriamBlogApi.Gettext
+      unquote(shared)
     end
   end
 
@@ -65,12 +67,14 @@ end
       import MiriamBlogApi.Router.Helpers
       import MiriamBlogApi.ErrorHelpers
       import MiriamBlogApi.Gettext
+      unquote(shared)
     end
   end
 
   def router do
     quote do
       use Phoenix.Router
+      unquote(shared)
     end
   end
 
@@ -82,6 +86,20 @@ end
       import Ecto
       import Ecto.Query
       import MiriamBlogApi.Gettext
+      unquote(shared)
+    end
+  end
+
+  def interactor do
+    quote do
+      use Interactor, repo: MiriamBlogApi.Repo
+
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query
+      alias Ecto.Multi
+
+      unquote(shared)
     end
   end
 

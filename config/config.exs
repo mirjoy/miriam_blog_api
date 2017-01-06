@@ -15,7 +15,7 @@ config :miriam_blog_api,
 config :phoenix, :format_encoders,
   "json-api": Poison
 
-config :plug, :mimes, %{
+config :mime, :types, %{
   "application/vnd.api+json" => ["json-api"]
 }
 

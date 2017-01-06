@@ -18,8 +18,14 @@ defmodule MiriamBlogApi.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {MiriamBlogApi, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :faker, :comeonin, :ex_machina]]
+     applications: [:phoenix,
+                    :phoenix_pubsub,
+                    :phoenix_html,
+                    :cowboy,
+                    :logger,
+                    :gettext,
+                    :phoenix_ecto,
+                    :postgrex, :faker, :comeonin, :ex_machina, :timex, :interactor]]
   end
 
   # Specifies which paths to compile per environment.
@@ -41,8 +47,10 @@ defmodule MiriamBlogApi.Mixfile do
      {:ja_serializer, "~> 0.10.1"},
      {:ja_resource, github: "AgilionApps/ja_resource", branch: "ap/pagination-callback"},
      {:faker, "~> 0.5"},
-     {:guardian, "~> 0.12.0"},
+     {:guardian, "~> 0.13.0"},
+     {:interactor, github: "AgilionApps/interactor"},
      {:comeonin, "~> 2.5"},
+     {:timex, "~> 3.0"},
      {:ex_machina, "~> 1.0"}]
   end
 

@@ -42,7 +42,6 @@ defmodule MiriamBlogApi.BlogControllerTest do
   end
 
   test "POST /v1/blogs - invalid", %{conn: conn} do
-    user = Factory.insert(:user)
     payload = %{
       data: %{
         type: "blog",
